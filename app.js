@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-app.set('view engine', 'pug'); // pug 를 사용하겠다는 의미
+app.set('view engine', 'ejs'); // pug 를 사용하겠다는 의미
 app.set('views', 'views'); // views 라는 폴더를 views로 사용하겠다는 의미
 
 const adminData = require('./routes/admin');

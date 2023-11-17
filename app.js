@@ -5,14 +5,14 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-app.set('view engine', 'ejs'); // pug 를 사용하겠다는 의미
+app.set('view engine', 'ejs'); // ejs 를 사용하겠다는 의미
 app.set('views', 'views'); // views 라는 폴더를 views로 사용하겠다는 의미
 
 const adminData = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.urlencoded({extended: false})); // body-parser
+app.use(express.static(path.join(__dirname, 'public'))); // static file
 
 app.use('/admin', adminData.routes);
 app.use(shopRoutes);

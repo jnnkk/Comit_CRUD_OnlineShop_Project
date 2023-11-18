@@ -19,23 +19,18 @@ function postAdminProduct(req, res, next){
         category,
         stock,
         imgURL
-    );
+    ); // 상품 객체 생성
     product.insert()
-        .then(() => {
+        .then(() => { // insert 성공 시 메인으로 리다이렉트
             res.redirect('/');
         })
         .catch(err => { 
-            console.log("### product.insert 에러 ###")
+            
             console.log(err);
         });
 }
 
-function getBuyProduct(req, res, next){
-    res.render('shop', {prods: products, pageTitle: 'Shop', path: '/'});
-}
-
 module.exports = {
     getAdminProduct,
-    postAdminProduct,
-    getBuyProduct
+    postAdminProduct
 };

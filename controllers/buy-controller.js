@@ -1,5 +1,5 @@
 function getBuy (req, res, next) {
-    res.render('buy', {pageTitle: 'You are consumer', path: '/buy'});
+    res.render('buy', {pageTitle: 'BUY', path: '/buy'});
 }
 
 module.exports = {

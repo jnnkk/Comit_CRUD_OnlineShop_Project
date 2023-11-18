@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
+const buyController = require('../controllers/buy-controller');
+
 // /buy => GET
-router.get('/buy', (req, res, next) => {
-    res.render('buy', {pageTitle: 'You are consumer', path: '/buy'});
-});
+router.get('/buy', buyController.getBuy);
 
 exports.routes = router;

@@ -11,6 +11,7 @@ module.exports = class PRODUCT {
         this.category = category;
     }
 
+    /** 상품 추가 */
     insert() {
         return db.execute(
             'INSERT INTO product (title, cost, imgURL, description, stock, category) VALUES (?, ?, ?, ?, ?, ?)',
@@ -18,14 +19,17 @@ module.exports = class PRODUCT {
         ); // 인서트 공격을 방지하기 위해 두번째 인자에 배열로 넣어준다.
     }
 
-    static fetchAll() {
+    /** 상품 다 불러오기 */
+    static selectAll() {
         return db.execute('SELECT * FROM product');
-    } // 전체 상품 목록 가져오기
+    }
 
+    /** 상품 하나만 불러오기, id : 상품 id */
     static find(id) {
 
     }
 
+    /** 상품 삭제, id : 상품 id */
     static delete(id) {
     
     }

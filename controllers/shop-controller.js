@@ -1,7 +1,7 @@
 const PRODUCT = require('../models/product'); // 상품 모델 가져오기
 
 function getMainShop(req, res, next){
-    PRODUCT.fetchAll()
+    PRODUCT.selectAll()
         .then(([rows]) => {
             console.log(rows);
             res.render('shop', {
@@ -11,6 +11,7 @@ function getMainShop(req, res, next){
             }); // views/shop.ejs
         })
         .catch(err => {
+            console.log("### product.fetchAll 에러 ###")
             console.log(err);
         });
 }

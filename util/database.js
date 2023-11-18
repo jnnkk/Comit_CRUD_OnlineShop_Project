@@ -1,3 +1,5 @@
+// 데이터베이스 연결 설정
+
 const mysql = require('mysql2');
 
 const pool = mysql.createPool({

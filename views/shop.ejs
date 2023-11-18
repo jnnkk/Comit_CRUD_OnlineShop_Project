@@ -2,12 +2,12 @@
 <html>
 
 <head>
-    <%- include('./layouts/head-layout.ejs') %>
+    <%- include('./imports/head-layout.ejs') %>
     <link rel="stylesheet" href="/css/product.css">
 </head>
 
 <body>
-    <%- include('./layouts/header.ejs') %>
+    <%- include('./imports/header.ejs') %>
 
     <main>
         <% if (prods.length > 0) { %>
@@ -25,7 +25,9 @@
                             <p class="product__description">YES</p>
                         </div>
                         <div class="card__actions">
-                            <button class="btn">Add to cart</button>
+                            <form action="/buy" method="get">
+                                <button class="btn" type="submit">BUY</button>
+                            </form>
                         </div>
                     </article>
                 <% } %>

@@ -11,6 +11,7 @@ app.set('views', 'views'); // views 라는 폴더를 views로 사용하겠다는
 const adminData = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const buyRoutes = require('./routes/buy');
+const db = require('./util/database');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));

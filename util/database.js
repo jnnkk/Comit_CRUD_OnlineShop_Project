@@ -2,7 +2,7 @@ const mysql = require('mysql2');
 
 const pool = mysql.createPool({
     host: 'localhost', // DB 서버 주소
-    username: 'root', // DB 사용자 아이디
+    user: 'root', // DB 사용자 아이디
     database: 'onlineshop', // DB 스키마 이름
     password: '0405', // DB 사용자 비밀번호
 });

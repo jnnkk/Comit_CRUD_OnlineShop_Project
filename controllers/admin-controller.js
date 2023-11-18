@@ -1,4 +1,4 @@
-const products = [];
+const PRODUCT = require('../models/product'); // 상품 모델 가져오기
 
 function getAdminProduct(req, res, next){
     res.render('add-product', { pageTitle: 'Add Product', path: '/admin/add-product'});

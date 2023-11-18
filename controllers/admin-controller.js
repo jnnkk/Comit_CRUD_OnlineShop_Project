@@ -5,8 +5,29 @@ function getAdminProduct(req, res, next){
 }
 
 function postAdminProduct(req, res, next){
-    products.push({ title: req.body.title });
-    res.redirect('/');
+    const title = req.body.title;
+    const cost = req.body.cost;
+    const imgURL = req.body.imgURL;
+    const description = req.body.description;
+    const stock = req.body.stock;
+    const category = req.body.category
+    const product = new PRODUCT(
+        null,
+        title,
+        description,
+        cost,
+        category,
+        stock,
+        imgURL
+    );
+    product.insert()
+        .then(() => {
+            res.redirect('/');
+        })
+        .catch(err => { 
+            console.log("### product.insert 에러 ###")
+            console.log(err);
+        });
 }
 
 function getBuyProduct(req, res, next){

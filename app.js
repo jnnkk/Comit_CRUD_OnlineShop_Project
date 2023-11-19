@@ -21,7 +21,7 @@ app.use(shopRoutes.routes); // / 으로 시작하는 주소는 shopRoutes 에서
 app.use(buyRoutes.routes); // /buy 으로 시작하는 주소는 buyRoutes 에서 처리
 
 app.use((req, res, next) => {
-    res.status(404).render('404', { pageTitle: 'Page Not Found' }); // 옵션을 객체로 줄 수 있음
+    res.status(404).render('404', { pageTitle: 'Page Not Found', path: '' }); // 옵션을 객체로 줄 수 있음
 });
 
 app.listen(3000);

@@ -26,11 +26,21 @@ module.exports = class PRODUCT {
 
     /** 상품 하나만 불러오기, id : 상품 id */
     static find(id) {
-
+        return db.execute('SELECT * FROM product WHERE product.id = ?', [id]);
     }
 
     /** 상품 삭제, id : 상품 id */
     static delete(id) {
-    
+        return db.execute('DELETE FROM product WHERE product.id = ?', [id]);
+    }
+
+    /** 상품 수정, id : 상품 id */
+    static updateStock(id, title, description, cost, category, stock, imgURL) {
+        if (title === null) {}
+
+        return db.execute(
+            'UPDATE product SET title = ?, description = ?, cost = ?, category = ?, stock = ?, imgURL = ? WHERE product.id = ?',
+            [title, description, cost, category, stock, imgURL, id]
+        );
     }
 };

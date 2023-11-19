@@ -26,8 +26,11 @@
                             <p class="product__stock"><%= product.stock %></p>
                         </div>
                         <div class="card__actions">
-                            <form action="/buy" method="get">
-                                <button class="btn" type="submit">BUY</button>
+                            <form action="/admin/edit-product/<%= product.id %>" method="get">
+                                <button class="btn" type="submit">EDIT</button>
+                            </form>
+                            <form action="/admin/delete-product" method="post">
+                                <button class="btn" type="submit">DELETE</button>
                             </form>
                         </div>
                     </article>

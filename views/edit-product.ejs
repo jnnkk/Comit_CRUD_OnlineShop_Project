@@ -27,7 +27,7 @@
                             <p class="product__stock"><%= product.stock %></p>
                         </div>
 
-                        <form class="product-form" action="/admin/add-product" method="POST">
+                        <form class="product-form" action="/admin/edit-product/<%= product.id %>" method="POST">
                             <div class="form-control">
                                 <label for="title">Title</label>
                                 <input type="text" name="title" id="title">

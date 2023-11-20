@@ -72,10 +72,44 @@ function getEditProduct (req, res, next) { // 상품 수정 페이지 렌더링
     */
 }
 
+function postEditProduct (req, res, next) { // 상품 수정
+    const productId = req.params.productId;
+    PRODUCT.update({
+        title: req.body.title,
+        cost: req.body.cost,
+        imgURL: req.body.imgURL,
+        description: req.body.description,
+        stock: req.body.stock,
+        category: req.body.category
+    }, {where : {id : productId}})
+    .then((result) => {
+        console.log("### product.update 성공 ###");
+        res.redirect('/admin/edit-delete-product');
+    })
+    .catch(err => {
+        console.log("### product.update 에러 ###")
+        console.log(err);
+    });
+}
+
+function postDeleteProduct (req, res, next) { // 상품 삭제
+    const productId = req.params.productId;
+    PRODUCT.destroy({where : {id : productId}})
+    .then((result) => {
+        console.log("### product.destroy 성공 ###");
+        res.redirect('/admin/edit-delete-product');
+    })
+    .catch(err => {
+        console.log("### product.destroy 에러 ###")
+        console.log(err);
+    });
+}
 
 module.exports = {
     getAddProduct,
     postAddProduct,
     getEditDeleteProduct,
-    getEditProduct
+    getEditProduct,
+    postEditProduct,
+    postDeleteProduct
 };

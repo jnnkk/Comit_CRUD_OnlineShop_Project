@@ -29,7 +29,7 @@
                             <form action="/admin/edit-product/<%= product.id %>" method="get">
                                 <button class="btn" type="submit">EDIT</button>
                             </form>
-                            <form action="/admin/delete-product" method="post">
+                            <form action="/admin/delete-product/<%= product.id %>" method="post">
                                 <button class="btn" type="submit">DELETE</button>
                             </form>
                         </div>

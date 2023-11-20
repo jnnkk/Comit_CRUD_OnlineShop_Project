@@ -1,5 +1,6 @@
 // 데이터베이스 연결 설정
 
+/* 기존 방법
 const mysql = require('mysql2');
 
 const pool = mysql.createPool({
@@ -10,3 +11,12 @@ const pool = mysql.createPool({
 });
 
 module.exports = pool.promise(); // 프로미스 사용하여 비동기적 데이터 다루기
+*/
+
+// Sequelize 사용
+
+const { Sequelize } = require('sequelize');
+
+const sequelize = new Sequelize('onlineshop', 'root', '0405', {dialect: 'mysql', host: 'localhost'});
+
+module.exports = sequelize;

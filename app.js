@@ -2,6 +2,8 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 
+const sequelize = require('./util/database');
+
 const app = express();
 
 app.set('view engine', 'ejs'); // pug 를 사용하겠다는 의미
@@ -24,4 +26,11 @@ app.use((req, res, next) => {
     res.status(404).render('404', { pageTitle: 'Page Not Found', path: '' }); // 옵션을 객체로 줄 수 있음
 });
 
-app.listen(3000);
+sequelize.sync()
+.then(result => {
+    app.listen(3000);
+})
+.catch(err => {
+    console.log('### sequelize.sync() error ###');
+    console.log(err);
+}) // sequelize 를 통해 정의한 모델을 실제 DB에 적용

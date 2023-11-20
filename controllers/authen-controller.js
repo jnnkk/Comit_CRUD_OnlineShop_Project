@@ -54,7 +54,13 @@ function postLogin(req, res, next) { // 로그인 처리
     })
     .then(user => {
         if (user.length > 0) {
-            /* 후추 */
+            // 세션에 로그인 정보 저장
+            req.session.isLoggedIn = true;
+            req.session.user = user[0];
+            req.session.save(err => {
+                console.log('### postLogin() error ###');
+                console.log(err);
+            });
         }
         else {
             console.log('### postLogin() error ###');

@@ -31,8 +31,8 @@ app.use((req, res, next) => {
 });
 
 // 관계 정의
-USER.belongsToMany(PRODUCT, {through: CART});
-PRODUCT.belongsToMany(USER, {through: CART});
+USER.belongsToMany(PRODUCT, {through: CART, onDelete: 'CASCADE', onUpdate: 'CASCADE'});
+PRODUCT.belongsToMany(USER, {through: CART, onDelete: 'CASCADE', onUpdate: 'CASCADE'});
 
 sequelize.sync({force: true}) // force: true 를 통해 기존에 있던 테이블을 삭제하고 새로 생성 / 매 실행마다 실행 하므로 다 완성되면 없애야 됨
 .then(result => {

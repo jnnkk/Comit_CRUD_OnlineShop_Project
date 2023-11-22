@@ -13,24 +13,25 @@
         <% if (prods.length > 0) { %>
             <div class="grid">
                 <% for (let product of prods) { %>
-                    <article class="card product-item">
-                        <header class="card__header">
-                            <h1 class="product__title"><%= product.title %></h1>
-                        </header>
-                        <div class="card__image">
-                            <img src="<%= product.imgURL %>" alt="">
-                        </div>
-                        <div class="card__content">
-                            <h2 class="product__price"><%= product.cost %></h2>
-                            <p class="product__description"><%= product.description %></p>
-                            <p class="product__stock"><%= product.stock %></p>
-                        </div>
-                        <div class="card__actions">
-                            <form action="/buy" method="get">
-                                <button class="btn" type="submit">BUY</button>
-                            </form>
-                        </div>
-                    </article>
+                    <% if (product.stock > 0) {%>
+                        <article class="card product-item">
+                            <header class="card__header">
+                                <h1 class="product__title"><%= product.title %></h1>
+                            </header>
+                            <div class="card__image">
+                                <img src="<%= product.imgURL %>" alt="">
+                            </div>
+                            <div class="card__content">
+                                <h2 class="product__price"><%= product.cost %>원</h2>
+                                <p class="product__description"><%= product.description %></p>
+                            </div>
+                            <div class="card__actions">
+                                <form action="/buy" method="get">
+                                    <button class="btn" type="submit">BUY</button>
+                                </form>
+                            </div>
+                        </article>
+                    <% } %>
                 <% } %>
             </div>
         <% } else { %>

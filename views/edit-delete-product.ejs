@@ -21,15 +21,15 @@
                             <img src="<%= product.imgURL %>" alt="">
                         </div>
                         <div class="card__content">
-                            <h2 class="product__price"><%= product.cost %></h2>
+                            <h2 class="product__price"><%= product.cost %>원</h2>
                             <p class="product__description"><%= product.description %></p>
-                            <p class="product__stock"><%= product.stock %></p>
+                            <p class="product__stock">Stock : <%= product.stock %></p>
                         </div>
                         <div class="card__actions">
-                            <form action="/admin/edit-product/<%= product.id %>" method="get">
+                            <form class="btnform" action="/admin/edit-product/<%= product.id %>" method="get">
                                 <button class="btn" type="submit">EDIT</button>
                             </form>
-                            <form action="/admin/delete-product/<%= product.id %>" method="post">
+                            <form class="btnform" action="/admin/delete-product/<%= product.id %>" method="post">
                                 <button class="btn" type="submit">DELETE</button>
                             </form>
                         </div>

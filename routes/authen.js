@@ -10,8 +10,12 @@ router.get('/signup', authenController.getSignup);
 router.post('/signup', authenController.postSignup);
 
 // /login => GET
-router.get('/login', );
+router.get('/login', authenController.getLogin);
+
 // /login => POST
-router.post('/login', );
+router.post('/login', authenController.postLogin);
+
+// /logout => GET
+router.get('/logout', authenController.getLogout);
 
 exports.routes = router;

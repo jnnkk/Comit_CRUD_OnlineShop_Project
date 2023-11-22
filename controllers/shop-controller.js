@@ -6,7 +6,10 @@ function getMainShop(req, res, next){ // 메인 쇼핑 페이지 렌더링
             res.render('shop', {
                 prods: result,
                 pageTitle: 'Shop',
-                path: '/'
+                path: '/',
+                isAuthen: req.session.isLoggedIn,
+                username: req.session.user,
+                isAdmin: req.session.isAdmin
             }); // views/shop.ejs
         })
         .catch(err => {

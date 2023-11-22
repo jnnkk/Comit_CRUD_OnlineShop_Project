@@ -1,7 +1,13 @@
 const PRODUCT = require('../models/product'); // 상품 모델 가져오기
 
 function getAddProduct(req, res, next){ // 상품 추가 페이지 렌더링
-    res.render('add-product', { pageTitle: 'Add Product', path: '/admin/add-product'});
+    res.render('add-product', { 
+        pageTitle: 'Add Product',
+        path: '/admin/add-product',
+        isAuthen: req.session.isLoggedIn,
+        username: req.session.user,
+        isAdmin: req.session.isAdmin
+    });
 }
 
 function postAddProduct(req, res, next){ // 상품 추가
@@ -33,7 +39,10 @@ function getEditDeleteProduct (req, res, next) { // 상품 수정, 삭제 페이
         res.render('edit-delete-product', {
             prods: result,
             pageTitle: 'Edit Product',
-            path: '/admin/edit-delete-product'
+            path: '/admin/edit-delete-product',
+            isAuthen: req.session.isLoggedIn,
+            username: req.session.user,
+            isAdmin: req.session.isAdmin
         }); // views/shop.ejs
     })
     .catch(err => {
@@ -49,7 +58,10 @@ function getEditProduct (req, res, next) { // 상품 수정 페이지 렌더링
         res.render('edit-product', {
             prods: result,
             pageTitle: 'Edit Product',
-            path: '/admin/edit-product'
+            path: '/admin/edit-product',
+            isAuthen: req.session.isLoggedIn,
+            username: req.session.user,
+            isAdmin: req.session.isAdmin
         }); // views/edit-product.ejs
     })
     .catch(err => {

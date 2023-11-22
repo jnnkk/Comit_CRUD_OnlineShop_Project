@@ -26,6 +26,7 @@ main {
   height: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .main-header__item-list {
@@ -62,7 +63,7 @@ main {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 }
 /*카드 위에 마우스 올렸을 때 효과*/
-.card:hover {
+.product-item:hover {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
   transform: scale(1.05);
 }
@@ -114,4 +115,8 @@ main {
 
 .btnform {
   margin-bottom: 0.5rem;
+}
+
+#login {
+  color: white;
 }

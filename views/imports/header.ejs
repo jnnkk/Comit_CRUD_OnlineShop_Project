@@ -2,11 +2,20 @@
     <nav class="main-header__nav">
         <ul class="main-header__item-list">
             <li class="main-header__item"><a class="<%= path === '/' ? 'active' : '' %>" href="/">Shop</a></li>
+            <% if (isAdmin === true) { %>
             <li class="main-header__item"><a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product">Add Product</a></li>
             <li class="main-header__item"><a class="<%= path === '/admin/edit-delete-product' ? 'active' : '' %>" href="/admin/edit-delete-product">Edit Product</a></li>
-            <li class="main-header__item"><a class="<%= path === '/signup' ? 'active' : '' %>" href="/signup">Sign up</a></li>     
-            <li class="main-header__item"><a class="<%= path === '/login' ? 'active' : '' %>" href="/login">Login</a></li>
-            <li class="main-header__item"><a class="<%= path === '/cart' ? 'active' : '' %>" href="/cart">Cart</a></li>
+            <% } %>
+        </ul>
+        <ul class="main-header__item-list">
+            <% if (isAuthen !== true) { %>
+                <li class="main-header__item"><a class="<%= path === '/signup' ? 'active' : '' %>" href="/signup">Sign up</a></li>     
+                <li class="main-header__item"><a class="<%= path === '/login' ? 'active' : '' %>" href="/login">Login</a></li>
+            <% } else { %>
+                <li class="main-header__item"><a class="<%= path === '/cart' ? 'active' : '' %>" href="/cart">Cart</a></li>
+                <li class="main-header__item" id="login"><%= username %>님 로그인중</li>
+                <li class="main-header__item"><a href="/logout">Logout</a></li>
+            <% } %>
         </ul>
     </nav>
 </header>

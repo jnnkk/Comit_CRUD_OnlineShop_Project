@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
+const multer = require('multer'); // 파일 업로드를 위한 미들웨어
 
 const sequelize = require('./util/database');
 const PRODUCT = require('./models/product');

@@ -43,9 +43,17 @@
                 
                                 <label for="stock">Stock</label>
                                 <input type="number" name="stock" id="stock" value=<%= product.stock %>>
-                
+                                
                                 <label for="category">Category</label>
-                                <input type="" name="category" id="category" value=<%= product.category %>>
+                                <select name="category" id="category">
+                                    <option value="foods" <% if (product.category === "foods") { %>selected<% } %>>FOODS</option>
+                                    <option value="clothes" <% if (product.category === "clothes") { %>selected<% } %>>CLOTHES</option>
+                                    <option value="books" <% if (product.category === "books") { %>selected<% } %>>BOOKS</option>
+                                    <option value="electronics" <% if (product.category === "electronics") { %>selected<% } %>>ELECTRONICS</option>
+                                    <option value="furnitures" <% if (product.category === "furnitures") { %>selected<% } %>>FURNITURES</option>
+                                    <option value="others" <% if (product.category === "others") { %>selected<% } %>>OTHERS</option>
+                                </select>
+                                                
                             </div>
                             <div class="card__actions">
                                 <button class="btn" type="submit">Edit Product</button>

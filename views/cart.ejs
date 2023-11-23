@@ -10,10 +10,12 @@
     <%- include('./imports/header.ejs') %>
 
     <main>
+        <h1>Total costs : <%= totalCost %></h1>
+        <h1>Total counts : <%= totalCount %></h1>
         <% if (prods.length > 0) { %>
             <div class="grid">
                 <% for (let product of prods) { %>
-                    <% if (product.stock > 0) {%>
+                    <% if (product.stock > 0 && product.count > 0) {%>
                         <article class="card product-item">
                             <header class="card__header">
                                 <h1 class="product__title"><%= product.title %></h1>
@@ -24,16 +26,21 @@
                             <div class="card__content">
                                 <h2 class="product__price"><%= product.cost %>원</h2>
                                 <p class="product__description"><%= product.description %></p>
+                                <p class="product__description">count : <%= product.count %></p>
                             </div>
                             <div class="card__actions">
                                 <form class="btnform" action="/buy" method="get">
                                     <button class="btn" type="submit">BUY</button>
                                 </form>
-                                <% if (isAuthen === true) { %>
-                                <form class="btnform" action="/cart/add-cart-product/<%= product.id %>" method="post">
-                                    <button class="btn" type="submit">ADD CART</button>
+                                <form class="btnform" action="/cart/upcount-cart-product/<%= product.productId %>" method="post">
+                                    <button class="btn" type="submit">count up</button>
                                 </form>
-                                <% } %>
+                                <form class="btnform" action="/cart/downcount-cart-product/<%= product.productId %>" method="post">
+                                    <button class="btn" type="submit">count down</button>
+                                </form>
+                                <form class="btnform" action="/cart/delete-cart-product/<%= product.productId %>" method="post">
+                                    <button class="btn" type="submit">delete</button>
+                                </form>
                             </div>
                         </article>
                     <% } %>

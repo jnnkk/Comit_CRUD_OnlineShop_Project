@@ -3,9 +3,14 @@
     <!-- pageTitle, path 필요-->
 <head>
     <%- include('./imports/head-layout') %>
+    <meta http-equiv="refresh" content="4; url=/"> 
 </head>
 <body>
     <%- include('./imports/header') %>
-    <h1>You bought an item!</h1>
+    <div style="text-align: center;">
+        <h1>You bought an item!</h1>
+        <h1 id="countdown">3</h1>
+        <script src="/js/timer.js"></script>
+    </div>
 </body>
 </html>

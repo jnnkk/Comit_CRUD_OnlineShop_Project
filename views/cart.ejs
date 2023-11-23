@@ -29,7 +29,7 @@
                                 <p class="product__description">count : <%= product.count %></p>
                             </div>
                             <div class="card__actions">
-                                <form class="btnform" action="/buy" method="get">
+                                <form class="btnform" action="/buy/<%= product.productId %>" method="get">
                                     <button class="btn" type="submit">BUY</button>
                                 </form>
                                 <form class="btnform" action="/cart/upcount-cart-product/<%= product.productId %>" method="post">

@@ -26,9 +26,6 @@
                                 <p class="product__description"><%= product.description %></p>
                             </div>
                             <div class="card__actions">
-                                <form class="btnform" action="/buy" method="get">
-                                    <button class="btn" type="submit">BUY</button>
-                                </form>
                                 <% if (isAuthen === true) { %>
                                 <form class="btnform" action="/cart/add-cart-product/<%= product.id %>" method="post">
                                     <button class="btn" type="submit">ADD CART</button>

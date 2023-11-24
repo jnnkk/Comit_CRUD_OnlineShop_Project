@@ -30,7 +30,7 @@ function getCart (req, res, next) { // 장바구니 페이지 렌더링
     });
 }
 
-function postAddCartProduct (req, res, next) { // 상품 수정 페이지 렌더링
+function postAddCartProduct (req, res, next) { // 장바구니에 상품 추가
     const productId = req.params.productId;
     PRODUCT.findAll({where : {id : productId}})
     .then((result) => {
